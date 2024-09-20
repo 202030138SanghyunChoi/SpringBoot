@@ -11,14 +11,9 @@ import org.example.springboot.domain.Article;
 @AllArgsConstructor
 @Getter
 @Setter
-
-// 이게 왜 필요하지??????????????????????
+// 다른 종류의 필드를 사용하기 위해 새로운 dto 객체 ArticleResponse 생성
+// Service 의 update 메서드에서 사용
 public class UpdateArticleRequest {
     private String title;
     private String content;
-
-    public UpdateArticleRequest(Article article) {
-        this.title = article.getTitle();
-        this.content = article.getContent();
-    }
 }

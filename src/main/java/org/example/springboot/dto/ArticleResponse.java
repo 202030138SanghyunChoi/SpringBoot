@@ -7,17 +7,19 @@ import lombok.Setter;
 import org.example.springboot.domain.Article;
 
 // 기본 생성자 및 모든 필드 생성자
+// Getter 와 Setter 롬복
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-
-// 이게 왜 필요하지??????????????????????
+// 다른 종류의 필드를 사용하기 위해 새로운 dto 객체 ArticleResponse 생성
+// Service 의 findAll 메서드에서 사용
 public class ArticleResponse {
     private Long id;
     private String title;
     private String content;
 
+    // 컨트롤러의 1개 SELECT 에서 사용
     public ArticleResponse(Article article) {
         this.id = article.getId();
         this.title = article.getTitle();
