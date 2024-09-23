@@ -49,7 +49,7 @@ public class BlogController {
         return ResponseEntity.status(200).body(articleResponseList);
     }
 
-    // GET 매핑(SELECT)
+    // GET Mapping(SELECT)
     // {id} 로 URI 변수 사용 @PathVariable 을 통해 전달 받음
     @GetMapping("/api/articles/{id}")
     public ResponseEntity<ArticleResponse> findArticle(@PathVariable long id) {
@@ -59,7 +59,7 @@ public class BlogController {
         return ResponseEntity.ok().body(new ArticleResponse(article));
     }
 
-    // Delete 매핑(DELETE)
+    // Delete Mapping(DELETE)
     // {id} 로 URI 변수 사용 @PathVariable 을 통해 전달 받음
     @DeleteMapping("/api/articles/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable long id) {
@@ -69,7 +69,7 @@ public class BlogController {
         return ResponseEntity.ok().build();
     }
 
-    // PUT 매핑(UPDATE)
+    // PUT Mapping(UPDATE)
     // {id} 로 URI 변수 사용 @PathVariable 을 통해 전달 받음
     @PutMapping("/api/articles/{id}")
     // id URI 를 위한 PathVariable 과 업데이트 하기 위한 RequestBody
