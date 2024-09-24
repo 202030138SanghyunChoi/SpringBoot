@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>블로그 글</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+    <h1 class="mb-3">My Blog</h1>
+    <h4 class="mb-3">블로그에 오신 것을 환영합니다.</h4>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <input type="hidden" id="article-id" th:value="${article.id}" />
+                <header class="mb-4">
+                    <label for="title">제목</label><input type="text" class="form-control" placeholder="제목" id="title" th:value="${article.title}" />
+                </header>
+                <section class="mb-5">
+                    <label for="content">내용</label><textarea class="form-control h-25" rows="10" placeholder="내용" id="content" th:text="${article.content}" />
+                </section>
+                <button th:if="${article.id} != null" type="button" id="modify-btn" class="btn btn-primary btn-sm">수정</button>
+                <button th:if="${article.id} == null" type="button" id="create-btn" class="btn btn-primary btn-sm">등록</button>
+            </article>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    const createButton = document.getElementById('create-btn');
+
+    if(createButton) {
+        createButton.addEventListener('click', event => {
+            fetch('/api/articles', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: document.getElementById('title').value,
+                    content: document.getElementById('content').value
+                })
+            }).then(() => {
+                alert('등록 되었습니다.');
+                location.replace('/articles');
+            })
+        })
+    }
+
+    const modifyButton = document.getElementById('modify-btn');
+
+    if(modifyButton) {
+        modifyButton.addEventListener('click', event => {
+
+            let params = new URLSearchParams(location.search);
+            let id = params.get('id');
+
+            fetch(`/api/articles/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: document.getElementById('title').value,
+                    content: document.getElementById('content').value
+                })
+            }).then(() => {
+                alert('수정이 완료되었습니다.');
+                location.replace(`/articles/${id}`);
+            });
+        });
+    }
+</script>
+</body>
+</html>
