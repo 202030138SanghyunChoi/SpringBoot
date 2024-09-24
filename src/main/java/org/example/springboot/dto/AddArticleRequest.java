@@ -22,6 +22,6 @@ public class AddArticleRequest {
 
     // title 이랑 content 를 엔티티 객체에 저장해서 리턴하는 메서드
     public Article toEntity() {
-        return new Article(title, content, createdAt);
+        return new Article(title, content);
     }
 }
