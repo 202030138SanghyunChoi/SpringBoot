@@ -18,10 +18,12 @@ import java.time.LocalDateTime;
 public class AddArticleRequest {
     private String title;
     private String content;
-    private LocalDateTime createdAt;
+    private LocalDateTime createAt = LocalDateTime.now();
+    private LocalDateTime updateAt = LocalDateTime.now();
 
     // title 이랑 content 를 엔티티 객체에 저장해서 리턴하는 메서드
+    // 저장 서비스에서 사용
     public Article toEntity() {
-        return new Article(title, content);
+        return new Article(title, content, createAt, updateAt);
     }
 }

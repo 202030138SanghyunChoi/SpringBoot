@@ -43,6 +43,7 @@ public class BlogController {
     // ArticleResponse 를 List 로 담은 ResponseEntity 반환
     public ResponseEntity<List<ArticleResponse>> findAllArticles() {
         // ResponseEntity 에 넣을 ArticleResponse 의 List 형태에 findAll() 서비스 동작
+        // ArticleResponse::new 는 ArticleResponse 클래스의 생성자이다.
         // findAll 서비스 동작 후에 찾은 값들을 ArticleResponse 타입으로 변환하여 toList() 로 뿌려줌.
         List<ArticleResponse> articleResponseList = blogService.findAll().stream().map(ArticleResponse::new).toList();
         // 상태 200(OK)

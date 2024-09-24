@@ -14,12 +14,14 @@ public class ExampleController {
 
     @GetMapping("/test")
     public String test(Model model) {
+        // 테스트용 사람 객체 생성
         Person person = new Person();
         person.setId(1L);
         person.setName("이름");
         person.setAge(18);
         person.setHobbies(List.of("운동", "독서"));
 
+        // addAttribute 메서드를 통해 데이터를 view 로 전달
         model.addAttribute("welcome", "HelloWorld");
         model.addAttribute("person", person);
         model.addAttribute("today", LocalDate.now());
@@ -28,6 +30,7 @@ public class ExampleController {
         return "test";
     }
 
+    // 테스트용 사람 클래스 선언
     @Getter
     @Setter
     class Person {

@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 // 다른 종류의 필드를 사용하기 위해 새로운 dto 객체 ArticleResponse 생성
 // Service 의 findAll 메서드에서 사용
+// createAt 필드 추가
 public class ArticleViewResponse {
     private Long id;
     private String title;

@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -67,7 +68,9 @@ class BlogControllerTest {
         final String url = "/api/articles";
         final String title = "testTitle";
         final String content = "testContent";
-        final AddArticleRequest request = new AddArticleRequest(title, content);
+        final LocalDateTime createAt = LocalDateTime.now();
+        final LocalDateTime updateAt = LocalDateTime.now();
+        final AddArticleRequest request = new AddArticleRequest(title, content, createAt, updateAt);
 
         // objectMapper 를 사용하여 writeValueAsString() 메서드로 직렬화(JSON 으로 변환)하여 content 나 type 의 값을 전송하게 함
         final String requestBody = objectMapper.writeValueAsString(request);

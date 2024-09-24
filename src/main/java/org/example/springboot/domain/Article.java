@@ -1,9 +1,7 @@
 package org.example.springboot.domain;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 
@@ -12,6 +10,7 @@ import java.time.LocalDateTime;
 // Article 엔티티 클래스
 // lombok Get, Set 메서드 및 기본 생성자
 // Parameter 가 없는 생성자
+// 모든 Parameter 가 있는 생성자
 @Entity
 @Getter
 @NoArgsConstructor
@@ -43,8 +42,13 @@ public class Article {
     public Article(String title, String content) {
         this.title = title;
         this.content = content;
-        this.createdAt = LocalDateTime.now();
-        this.updateAt = LocalDateTime.now();
+    }
+
+    public Article(String title, String content, LocalDateTime createdAt, LocalDateTime updateAt) {
+        this.title = title;
+        this.content = content;
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
     }
 
     // set 으로 직접 접근하는 것이 아닌 update 메서드 사용
