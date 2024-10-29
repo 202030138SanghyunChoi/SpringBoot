@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-// View 를 제어하는 BlogController
+// View 를 제어하는 BlogController. Http 상태코드가 아닌 templates 파일 이름 return
 // 생성자 자동 주입 RequiredArgsConstructor Annotation
 @Controller
 @RequiredArgsConstructor

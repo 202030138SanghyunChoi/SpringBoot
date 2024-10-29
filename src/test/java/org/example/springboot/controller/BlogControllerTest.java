@@ -25,12 +25,11 @@ import org.springframework.web.context.WebApplicationContext;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 // Spring Boot Test Annotation
-// MockMVC 를 생성하고 자동으로 구성.(MockMVC - 서버 배포를 하지 않고 테스트 환경 제공)
 @SpringBootTest
+// MockMVC 를 생성하고 자동으로 구성.(MockMVC - 서버 배포를 하지 않고 테스트 환경 제공)
 @AutoConfigureMockMvc
 class BlogControllerTest {
     // MockMvc 객체 사용
@@ -61,6 +60,7 @@ class BlogControllerTest {
 
     // POST Mapping(CREATE) TEST
     @DisplayName("addArticle: POST MAPPING(CREATE)")
+    // Test 최소 단위 설정
     @Test
     public void addArticle() throws Exception {
         // given(테스트 실행 준비)

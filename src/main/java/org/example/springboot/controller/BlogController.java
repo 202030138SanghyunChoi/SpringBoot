@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// JSON 을 다루는 RestController Annotation(Controller + ResponseBody)
-// RequiredArgsConstructor Annotation 이 생성된 필드의 생성자를 자동으로 생성
+// JSON 을 다루는 RestController Annotation(Controller + ResponseBody). Http 상태코드 리턴
 @RestController
+// RequiredArgsConstructor Annotation 이 생성된 필드의 생성자를 자동으로 생성
 @RequiredArgsConstructor
 public class BlogController {
 
+    // 서비스 객체 생성(의존성 final 선언)
     private final BlogService blogService;
 
     // TEST Mapping
