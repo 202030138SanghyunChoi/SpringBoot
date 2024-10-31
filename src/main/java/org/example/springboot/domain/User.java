@@ -13,10 +13,14 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
+// 엔티티 객체 지정 Annotation
 @Entity
+// Getter / Setter 메서드 자동 지정
 @Getter
 @Setter
+// 테이블 Annotation 지정(이름 지정)
 @Table(name="users")
+// Arguments 가 없는 생성자 자동 생성
 @NoArgsConstructor
 public class User implements UserDetails {
     @Column(name = "id", nullable = false)
