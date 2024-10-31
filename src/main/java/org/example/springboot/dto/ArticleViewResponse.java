@@ -8,22 +8,23 @@ import org.example.springboot.domain.Article;
 
 import java.time.LocalDateTime;
 
-// 기본 생성자 및 모든 필드 생성자
-// Getter 와 Setter 롬복
+
+// Arguments 가 없는 생성자 자동 생성
 @NoArgsConstructor
+// 모든 필드를 Arguments 로 하는 생성자 자동 생성
 @AllArgsConstructor
+// Getter 와 Setter 메서드 자동 생성
 @Getter
 @Setter
-// 다른 종류의 필드를 사용하기 위해 새로운 dto 객체 ArticleResponse 생성
 // Service 의 findAll 메서드에서 사용
-// createAt 필드 추가
 public class ArticleViewResponse {
+    // 아래 4가지 정보 반환
     private Long id;
     private String title;
     private String content;
     private LocalDateTime createdAt;
 
-    // 컨트롤러의 1개 SELECT 에서 사용
+    // View Controller 에서 게시글 단일 조회할때 사용
     public ArticleViewResponse(Article article) {
         this.id = article.getId();
         this.title = article.getTitle();

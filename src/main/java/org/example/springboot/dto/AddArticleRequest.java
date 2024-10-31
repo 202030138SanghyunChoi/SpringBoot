@@ -8,14 +8,16 @@ import org.example.springboot.domain.Article;
 
 import java.time.LocalDateTime;
 
-// 기본 생성자 및 모든 필드 생성자
-// Getter 와 Setter 롬복
+// Arguments 가 없는 생성자 자동 생성
 @NoArgsConstructor
+// 모든 필드를 Arguments 로 하는 생성자 자동 생성
 @AllArgsConstructor
+// Getter 와 Setter 메서드 자동 생성
 @Getter
 @Setter
 // Service 의 save 서비스에서 사용
 public class AddArticleRequest {
+    // 필드 설정(title 이랑 content 는 생성자에서 넣어줄 거고, createAt 이랑 updateAt 은 현재 시각으로 설정)
     private String title;
     private String content;
     private LocalDateTime createAt = LocalDateTime.now();

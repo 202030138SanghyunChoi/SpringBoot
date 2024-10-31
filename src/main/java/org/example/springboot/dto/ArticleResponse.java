@@ -6,20 +6,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.springboot.domain.Article;
 
-// 기본 생성자 및 모든 필드 생성자
-// Getter 와 Setter 롬복
+// Arguments 가 없는 생성자 자동 생성
 @NoArgsConstructor
+// 모든 필드를 Arguments 로 하는 생성자 자동 생성
 @AllArgsConstructor
+// Getter / Setter 메서드 자동 생성
 @Getter
 @Setter
-// 다른 종류의 필드를 사용하기 위해 새로운 dto 객체 ArticleResponse 생성
+// Article 출력 시 사용할 dto
 // Service 의 findAll 메서드에서 사용
 public class ArticleResponse {
+    // 아래 3가지 정보 반환
     private Long id;
     private String title;
     private String content;
 
-    // 컨트롤러의 1개 SELECT 에서 사용
+    // API Controller 에서 조회,전체 조회랑 View 용 Controller 에서 전체 조회할 때 사용
     public ArticleResponse(Article article) {
         this.id = article.getId();
         this.title = article.getTitle();

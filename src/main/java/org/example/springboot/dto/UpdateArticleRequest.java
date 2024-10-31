@@ -4,16 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.springboot.domain.Article;
 
-// 기본 생성자 및 모든 필드 생성자
+// Arguments 가 없는 생성자 자동 생성
 @NoArgsConstructor
+// 모든 필드를 Arguments 로 하는 생성자 자동 생성
 @AllArgsConstructor
+// Getter 와 Setter 메서드 자동 생성
 @Getter
 @Setter
-// 다른 종류의 필드를 사용하기 위해 새로운 dto 객체 ArticleResponse 생성
-// Service 의 update 메서드에서 사용
+// 업데이트에서 사용
 public class UpdateArticleRequest {
+    // 아래 두개 정보 수정
     private String title;
     private String content;
 }

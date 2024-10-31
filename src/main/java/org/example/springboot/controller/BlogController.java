@@ -76,6 +76,7 @@ public class BlogController {
     @PutMapping("/api/articles/{id}")
     // id URI 를 위한 PathVariable 과 업데이트 하기 위한 RequestBody
     public ResponseEntity<Article> updateArticle(@PathVariable long id, @RequestBody UpdateArticleRequest request) {
+        // update 서비스 수행
         Article updateArticle = blogService.update(id, request);
         // 상태 OK(200)
         return ResponseEntity.ok().body(updateArticle);

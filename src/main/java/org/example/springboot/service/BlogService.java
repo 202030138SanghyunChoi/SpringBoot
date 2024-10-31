@@ -11,11 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 // Service Annotation 지정
-// RequiredArgsConstructor Annotation 이 생성된 필드의 생성자를 자동으로 생성
 @Service
+// RequiredArgsConstructor Annotation 으로 의존성 주입을 위한 생성자 자동 생성
 @RequiredArgsConstructor
 public class BlogService {
     
+    // 의존성 주입 필요(위에서 해줌) 리포지토리 객체 생성
     private final ArticleRepository articleRepository;
 
     // 저장 서비스

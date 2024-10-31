@@ -14,7 +14,7 @@ public class ExampleController {
 
     @GetMapping("/test")
     public String test(Model model) {
-        // 테스트용 사람 객체 생성
+        // 테스트용 사람 객체 생성 및 정보 설정
         Person person = new Person();
         person.setId(1L);
         person.setName("이름");
@@ -26,11 +26,12 @@ public class ExampleController {
         model.addAttribute("person", person);
         model.addAttribute("today", LocalDate.now());
 
-        // resource/templates 폴더의 같은 이름의 html 파일 리턴
+        // resource/templates 폴더의 같은 이름의 html 파일 이름 리턴
         return "test";
     }
 
     // 테스트용 사람 클래스 선언
+    // Getter / Setter 메서드 자동 생성
     @Getter
     @Setter
     class Person {
